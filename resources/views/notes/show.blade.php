@@ -1,3 +1,3 @@
 <div>
-    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
+    <img src="{{ Storage::disk('public')->url($note->image_url) }}" alt="Uploaded File">
 </div>

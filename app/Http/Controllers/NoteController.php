@@ -51,7 +51,7 @@ class NoteController extends Controller
         // Check if the file is valid
         if (!$request->file('image')->isValid()) {
             // Return success response
-            return back()->with('error', 'File upload error')->with('image', $filePath);
+            return back()->with('error', 'File upload error')->with('image', $file);
         }
 
         // Store the file in the 'uploads' directory on the 'public' disk
@@ -70,7 +70,7 @@ class NoteController extends Controller
                 ->back()
                 ->with('success','File has been uploaded.');
 
-        // 	<img src="{{ Storage::disk('public')->url(session('file')) }}" alt="Uploaded File">
+        //<img src="{{ Storage::disk('public')->url(session('file')) }}" alt="Uploaded File">
     }
 
     /**
