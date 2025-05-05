@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User as User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->sentence(),
+            'body' => fake()->paragraph(),
+            'image_url' => 'uploads/not-found.jpg',
+            'user_id' => User::query()->inRandomOrder()->first()?->id ??
+            User::factory(),
         ];
     }
 }

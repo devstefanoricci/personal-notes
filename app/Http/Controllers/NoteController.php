@@ -12,9 +12,9 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = Note::latest()->with('user')->get();
+        $notes = Note::latest()->with('user')->paginate(10);
 
-        return $notes;
+        return view('notes.index')->with('notes', $notes);
     }
 
     /**
