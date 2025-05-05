@@ -110,7 +110,7 @@ class NoteController extends Controller
         $note->body = $request->input('body');
         $note->save();
 
-        return redirect()->with('success', 200);
+        return redirect()->route('notes.show', $note->id)->with('success', 200);
     }
 
     /**
@@ -122,6 +122,6 @@ class NoteController extends Controller
 
         $note->delete();
 
-        return redirect()->with('success', 204);
+        return redirect()->back()->with('success', 204);
     }
 }
